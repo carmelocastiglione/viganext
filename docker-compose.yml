@@ -1,40 +1,4 @@
 services:
-  web:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: viganext_app
-    working_dir: /var/www/html
-    volumes:
-      - .:/var/www/html
-      - ./storage:/var/www/html/storage
-      - ./bootstrap/cache:/var/www/html/bootstrap/cache
-    ports:
-      - "8000:9000"
-    environment:
-      - DB_HOST=postgres
-      - DB_PORT=5432
-      - DB_DATABASE=viganext
-      - DB_USERNAME=postgres
-      - DB_PASSWORD=postgres
-    depends_on:
-      - postgres
-    networks:
-      - viganext_network
-
-  nginx:
-    image: nginx:alpine
-    container_name: viganext_nginx
-    ports:
-      - "80:80"
-    volumes:
-      - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
-      - .:/var/www/html:ro
-    depends_on:
-      - web
-    networks:
-      - viganext_network
-
   postgres:
     image: postgres:16-alpine
     container_name: viganext_postgres
@@ -46,8 +10,6 @@ services:
       - postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
-    networks:
-      - viganext_network
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 10s
@@ -57,7 +19,3 @@ services:
 volumes:
   postgres_data:
     driver: local
-
-networks:
-  viganext_network:
-    driver: bridge
