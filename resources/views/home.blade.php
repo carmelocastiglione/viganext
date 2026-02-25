@@ -89,7 +89,7 @@
                         <a href="#" class="text-gray-600 hover:text-rose-600 transition-all duration-300 hover:scale-105">CicLab</a>
                         <a href="#" class="text-gray-600 hover:text-rose-600 transition-all duration-300 hover:scale-105">VigaSpecialWeek</a>
                         <button class="bg-rose-500 text-white px-6 py-2 rounded-full hover:bg-rose-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                            Accedi
+                            <a href="{{ route('login') }}">Accedi</a>
                         </button>
                     </div>
                     <div class="md:hidden">
@@ -106,7 +106,9 @@
                     <a @click="open=false" href="#" class="block px-3 py-2 rounded-lg hover:bg-stone-100 text-gray-700">Mercatino</a>
                     <a @click="open=false" href="#" class="block px-3 py-2 rounded-lg hover:bg-stone-100 text-gray-700">CicLab</a>
                     <a @click="open=false" href="#" class="block px-3 py-2 rounded-lg hover:bg-stone-100 text-gray-700">VigaSpecialWeek</a>
-                    <button class="w-full bg-rose-500 text-white px-4 py-2 rounded-lg hover:bg-rose-600 transition">Accedi</button>
+                    <button class="w-full bg-rose-500 text-white px-4 py-2 rounded-lg hover:bg-rose-600 transition">
+                        <a href="{{ route('login') }}">Accedi</a>
+                    </button>
                 </div>
             </div>
         </nav>
@@ -126,7 +128,7 @@
                             Un unico punto di accesso ai servizi dedicati agli studenti: mercatino libri usati, attività di potenziamento disciplinare, di recupero e progetti pomeridiani che valorizzano competenze, passioni e spirito di iniziativa.
                         </p>
                         <div class="flex justify-center sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                            <a href="#pricing" class="bg-rose-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-rose-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center">
+                            <a href="{{ route('login') }}" class="bg-rose-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-rose-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center">
                                 <i class="fa-solid fa-right-to-bracket mr-2"></i>
                                 Accedi a VigaNext
                             </a>
@@ -159,7 +161,7 @@
                         <div class="text-white p-8 sm:p-12 max-w-md bg-black/30 rounded-2xl backdrop-blur-sm">
                             <h3 class="text-3xl sm:text-4xl font-bold mb-4 drop-shadow-lg">Mercatino libri usati</h3>
                             <p class="text-base sm:text-lg leading-relaxed drop-shadow-md">Vendi, prenota e acquista libri usati a prezzi convenienti.</p>
-                            <a href="#pricing" class="inline-flex items-center mt-6 bg-white/95 text-rose-600 px-6 py-2 sm:py-3 rounded-full font-semibold hover:bg-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                            <a href="{{ route('login') }}" class="inline-flex items-center mt-6 bg-white/95 text-rose-600 px-6 py-2 sm:py-3 rounded-full font-semibold hover:bg-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
                                 Entra <i class="fa-solid fa-angle-right ml-2"></i>
                             </a>
                         </div>
@@ -174,7 +176,7 @@
                         <div class="text-white p-8 sm:p-12 max-w-md bg-black/30 rounded-2xl backdrop-blur-sm">
                             <h3 class="text-3xl sm:text-4xl font-bold mb-4 drop-shadow-lg">Ciclab</h3>
                             <p class="text-base sm:text-lg leading-relaxed drop-shadow-md">Attività integrative pomeridiane per consolidare le competenze degli studenti e stimolare la creatività e l'espressività.</p>
-                            <a href="#pricing" class="inline-flex items-center mt-6 bg-white/95 text-rose-600 px-6 py-2 sm:py-3 rounded-full font-semibold hover:bg-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                            <a href="{{ route('login') }}" class="inline-flex items-center mt-6 bg-white/95 text-rose-600 px-6 py-2 sm:py-3 rounded-full font-semibold hover:bg-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
                                 Entra <i class="fa-solid fa-angle-right ml-2"></i>
                             </a>
                         </div>
@@ -189,7 +191,7 @@
                         <div class="text-white p-8 sm:p-12 max-w-md bg-black/30 rounded-2xl backdrop-blur-sm">
                             <h3 class="text-3xl sm:text-4xl font-bold mb-4 drop-shadow-lg">VigaSpecialWeek</h3>
                             <p class="text-base sm:text-lg leading-relaxed drop-shadow-md">Settimana speciale con eventi e attività uniche per gli studenti.</p>
-                            <a href="#pricing" class="inline-flex items-center mt-6 bg-white/95 text-rose-600 px-6 py-2 sm:py-3 rounded-full font-semibold hover:bg-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                            <a href="{{ route('login') }}" class="inline-flex items-center mt-6 bg-white/95 text-rose-600 px-6 py-2 sm:py-3 rounded-full font-semibold hover:bg-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
                                 Entra <i class="fa-solid fa-angle-right ml-2"></i>
                             </a>
                         </div>
@@ -212,7 +214,7 @@
                     Unisciti a migliaia di studenti che hanno già trasformato la loro esperienza al Viganò con VigaNext. Non perdere l'opportunità di accedere a servizi esclusivi e vivere al massimo la tua vita scolastica!
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-                    <a href="#pricing" class="bg-white text-rose-600 px-8 py-4 rounded-full font-semibold hover:bg-rose-50 transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-3xl flex items-center justify-center">
+                    <a href="{{ route('login') }}" class="bg-white text-rose-600 px-8 py-4 rounded-full font-semibold hover:bg-rose-50 transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-3xl flex items-center justify-center">
                         <i class="fa-solid fa-right-to-bracket mr-2"></i>
                         Accedi a VigaNext
                     </a>

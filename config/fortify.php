@@ -143,6 +143,9 @@ return [
     |
     */
 
+    // Disabling all features
+    'features' => [],
+    /*
     'features' => [
         Features::registration(),
         Features::resetPasswords(),
@@ -153,5 +156,6 @@ return [
             // 'window' => 0
         ]),
     ],
+    */
 
 ];
