@@ -81,7 +81,24 @@ If you have seeders, populate the database with sample data:
 php artisan db:seed
 ```
 
-### 8. Start the Local Development Server
+### 8. Add user to Database (Optional)
+You can create a user directly in the database for testing purposes:
+
+```bash
+php artisan tinker
+```
+
+Then run the following code in the Tinker shell:
+
+```php
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+
+User::create(['name' => 'Admin', 'surname' => 'VigaNext', 'email' => 'admin@issvigano.org', 'email_verified_at' => now(), 'password' => Hash::make('password'), 'remember_token' => Str::random(10), 'created_at' => now(), 'updated_at' => now(),]);
+```
+
+### 9. Start the Local Development Server
 
 Start the Laravel development server:
 

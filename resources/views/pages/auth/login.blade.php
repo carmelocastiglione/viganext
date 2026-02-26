@@ -24,6 +24,9 @@
                     <!-- Google OAuth Button -->
                     <x-oauth-google-button href="{{ route('oauth.google') }}" />
 
+                    <!-- OAuth Error Display -->
+                    <x-oauth-error />
+
                     <flux:text class="text-xs text-center mt-4">
                         Accesso consentito solo per gli account @issvigano.org
                     </flux:text>

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
+use Opcodes\LogViewer\Facades\LogViewer;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,6 +25,13 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->configureDefaults();
+
+        // TODO: Adjust LogViewer authentication as needed for your application.
+        LogViewer::auth(function ($request) {
+            return true; // Allow all users to view the Log Viewer. Adjust as needed for authentication.
+            // return true to allow viewing the Log Viewer.
+            //return auth()->check() && auth()->user()?->isAdmin();
+        });
     }
 
     /**
