@@ -81,8 +81,21 @@ If you have seeders, populate the database with sample data:
 php artisan db:seed
 ```
 
-### 8. Add user to Database (Optional)
-You can create a user directly in the database for testing purposes:
+### 8. Seed the Database with Users and Roles (Recommended)
+The easiest way to populate the database with sample data is using Laravel seeders:
+
+```bash
+php artisan db:seed
+```
+
+This will create:
+- **Admin User**: email `admin@issvigano.org`, password `password`
+- **Roles**: admin, teacher, student, external
+- **Projects**: vigaspecialweek, ciclab, mercatino
+- **Role Assignment**: Admin user assigned to the admin role
+
+### 9. Add user to Database Manually (Optional)
+If you prefer to create a user manually, you can use the Tinker shell:
 
 ```bash
 php artisan tinker
@@ -92,13 +105,34 @@ Then run the following code in the Tinker shell:
 
 ```php
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-User::create(['name' => 'Admin', 'surname' => 'VigaNext', 'email' => 'admin@issvigano.org', 'email_verified_at' => now(), 'password' => Hash::make('password'), 'remember_token' => Str::random(10), 'created_at' => now(), 'updated_at' => now(),]);
+// Create roles if they don't exist
+$roles = ['admin', 'teacher', 'student', 'external'];
+foreach ($roles as $roleName) {
+    Role::firstOrCreate(['name' => $roleName], ['description' => ucfirst($roleName) . ' role']);
+}
+
+// Create admin user
+$user = User::create([
+    'name' => 'Admin',
+    'surname' => 'VigaNext',
+    'email' => 'admin@issvigano.org',
+    'email_verified_at' => now(),
+    'password' => Hash::make('password'),
+    'remember_token' => Str::random(10),
+]);
+
+// Assign admin role to the user
+$adminRole = Role::where('name', 'admin')->first();
+if ($adminRole) {
+    $user->roles()->attach($adminRole->id);
+}
 ```
 
-### 9. Start the Local Development Server
+### 10. Start the Local Development Server
 
 Start the Laravel development server:
 
