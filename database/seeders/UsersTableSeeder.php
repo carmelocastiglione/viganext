@@ -25,5 +25,38 @@ class UsersTableSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+
+        User::create([
+            'name' => 'Teacher',
+            'surname' => 'VigaNext',
+            'email' => 'teacher@issvigano.org',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'remember_token' => Str::random(10),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        User::create([
+            'name' => 'Student',
+            'surname' => 'VigaNext',
+            'email' => 'student@issvigano.org',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'remember_token' => Str::random(10),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        User::create([
+            'name' => 'External',
+            'surname' => 'VigaNext',
+            'email' => 'external@issvigano.org',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'remember_token' => Str::random(10),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
     }
 }
